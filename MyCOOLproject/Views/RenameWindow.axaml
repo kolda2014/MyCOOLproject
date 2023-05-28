@@ -1,0 +1,18 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="63"
+		Width="400" Height="63"
+        x:Class="MyCOOLproject.Views.RenameWindow"
+        Title="RenameWindow">
+	<StackPanel>
+		<TextBox Watermark="Name" Text="{Binding NameVkladka, Mode=TwoWay}" AcceptsReturn="True"/>
+		<WrapPanel>
+			<Button Content="Save"
+					Command="{Binding ButtonSave}"/>
+			<Button Content="Clear"
+					Command="{Binding ButtonClear}"/>
+		</WrapPanel>
+	</StackPanel>
+</Window>
