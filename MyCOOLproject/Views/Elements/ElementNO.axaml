@@ -1,0 +1,30 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:MyCOOLproject.Views.Elements">
+  <Design.PreviewWith>
+    <controls:ElementNO />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ElementNO">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Canvas Height="23" Width="46" Background="Transparent">
+			  <Path Fill="White" Data="M 1,1  l 0,20 l 25,-10  Z" Stroke="Black" StrokeThickness="1" Canvas.Left="9" ></Path>
+			  <Ellipse Name="NOIn1" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="0"
+                                          Y="6"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="NOExit" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="35"
+                                          Y="6"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+		  </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

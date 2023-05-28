@@ -1,0 +1,60 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:MyCOOLproject.Views.Elements">
+  <Design.PreviewWith>
+    <controls:ElementMUX />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ElementMUX">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Canvas Height="62" Width="59" Background="Transparent">
+			  <Rectangle Name="1Line" Height="60" Width="40" Stroke="Black" StrokeThickness="1" Canvas.Left="8">
+				  <Rectangle.RenderTransform>
+					  <TranslateTransform X="1"
+                                          Y="1"/>
+				  </Rectangle.RenderTransform>
+			  </Rectangle>
+			  <Ellipse Name="MUXIn1" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="0"
+                                          Y="5"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="MUXIn2" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="0"
+                                          Y="20"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="MUXIn3" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="0"
+                                          Y="35"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="MUXIn4" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="0"
+                                          Y="50"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="MUXExit" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="48.5"
+                                          Y="18"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="MUXExit2" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="48.5"
+                                          Y="38"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Path Fill="Transparent" Data="M 5.4,1 l 0,60 l 39,-0.5 l 0,-59 z" Canvas.Left="4"></Path>
+		  </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

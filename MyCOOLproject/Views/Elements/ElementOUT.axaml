@@ -1,0 +1,36 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:MyCOOLproject.Views.Elements">
+  <Design.PreviewWith>
+    <controls:ElementOUT />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ElementOUT">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Canvas Height="38" Width="45" Background="Transparent">
+			  <Ellipse Name="TeloOut" Height="35" Width="35" Stroke="Black" StrokeThickness="1" Canvas.Left="8.5">
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="1"
+                                          Y="1"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="OUTIn" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="0.1"
+                                          Y="14.5"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <TextBlock Canvas.Left="18" Canvas.Top="10" Text="{TemplateBinding Power}"></TextBlock>
+			  <Ellipse Name="Telo" Fill="Transparent" Height="35" Width="35" Canvas.Left="8.5">
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="1"
+                                          Y="1"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+		  </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

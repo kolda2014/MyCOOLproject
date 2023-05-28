@@ -1,0 +1,36 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:MyCOOLproject.Views.Elements">
+  <Design.PreviewWith>
+    <controls:ElementENTRY />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ElementENTRY">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Canvas Height="38" Width="46" Background="Transparent">
+			  <Rectangle Name="ISCEXIt" Height="35" Width="35" Stroke="Black" StrokeThickness="1">
+				  <Rectangle.RenderTransform>
+					  <TranslateTransform X="1"
+                                          Y="1"/>
+				  </Rectangle.RenderTransform>
+			  </Rectangle>
+			  <Ellipse Name="ORExit" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="35.5"
+                                          Y="13.5"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <TextBlock Canvas.Left="14" Canvas.Top="10" Text="{TemplateBinding Power}" ></TextBlock>
+			  <Rectangle Fill="Transparent" Height="35" Width="35">
+				  <Rectangle.RenderTransform>
+					  <TranslateTransform X="1"
+                                          Y="1"/>
+				  </Rectangle.RenderTransform>
+			  </Rectangle>
+		  </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

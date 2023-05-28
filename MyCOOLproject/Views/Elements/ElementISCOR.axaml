@@ -1,0 +1,42 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:MyCOOLproject.Views.Elements">
+  <Design.PreviewWith>
+    <controls:ElementISCOR />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|ElementISCOR">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+		  <Canvas Height="52" Width="38" Background="Transparent">
+			  <Path Fill="White" Data="M 1,1 c 0,0 25,20 0,50 l 10,0 c 0,0 25,-20 0,-50 Z" Stroke="Black" StrokeThickness="1" Canvas.Left="4" ></Path>
+			  <Ellipse Name="ORIn1" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="1"
+                                          Y="5"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="ORIn2" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="1"
+                                          Y="35"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Ellipse Name="ORExit" Fill="White" Height="10" Width="10" Stroke="Black" StrokeThickness="1" >
+				  <Ellipse.RenderTransform>
+					  <TranslateTransform X="26"
+                                          Y="21"/>
+				  </Ellipse.RenderTransform>
+			  </Ellipse>
+			  <Rectangle Name="ISCEXIt" Height="35" Width="1" Stroke="Black" StrokeThickness="1">
+				  <Rectangle.RenderTransform>
+					  <TranslateTransform X="26"
+                                          Y="10"/>
+				  </Rectangle.RenderTransform>
+			  </Rectangle>
+		  </Canvas>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>
