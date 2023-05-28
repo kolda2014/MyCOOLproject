@@ -1,0 +1,19 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:MyCOOLproject"
+             x:Class="MyCOOLproject.App">
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme Mode="Light"/>
+		<StyleInclude Source="/Views/Elements/ElementAND.axaml"/>
+		<StyleInclude Source="/Views/Elements/ElementOr.axaml"/>
+		<StyleInclude Source="/Views/Elements/ElementNO.axaml"/>
+		<StyleInclude Source="/Views/Elements/ElementISCOR.axaml"/>
+		<StyleInclude Source="/Views/Elements/ElementENTRY.axaml"/>
+		<StyleInclude Source="/Views/Elements/ElementOUT.axaml"/>
+		<StyleInclude Source="/Views/Elements/ElementMUX.axaml"/>
+    </Application.Styles>
+</Application>
