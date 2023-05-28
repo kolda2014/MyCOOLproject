@@ -1,0 +1,114 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:class ="clr-namespace:MyCOOLproject.Models"
+		xmlns:Views ="clr-namespace:MyCOOLproject.Views.Elements"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		Height="700" Width="1182"
+        x:Class="MyCOOLproject.Views.Redactor"
+        Title="Redactor">
+	<Grid RowDefinitions="40,*">
+		<WrapPanel Grid.Row="0">
+			<Menu Height="39" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center">
+				<MenuItem Background="lightgray" Header = "Menu">
+					<MenuItem Header="Create" Click="CreateProject"/>
+					<MenuItem Header="Open" Click="LoadFile"/>
+					<MenuItem Header="Save" Click="SaveFile"/>
+					<MenuItem Header="Exit" Click="CloseWindow"/>
+				</MenuItem>
+			</Menu>
+			<Button Name="A" Click="ClickElement" Content="И" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+			<Button Name="O" Click="ClickElement" Content="ИЛИ" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+			<Button Name="NO" Click="ClickElement" Content="НЕ" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+			<Button Name="I" Click="ClickElement" Content="ИСКЛ-ИЛИ" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+			<Button Name="M" Click="ClickElement" Content="МУКС" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+			<Button Name="E" Click="ClickElement" Content="ВХОД" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+			<Button Name="OUT" Click="ClickElement" Content="ВЫХОД" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+		</WrapPanel>
+		<Grid ColumnDefinitions="*,160" Grid.Row="1">
+			<ItemsControl Grid.Column="0" Items="{Binding objectCollection}" PointerPressed="AddOnHolstElement" Background="White">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<Canvas Name="Holst"/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.DataTemplates>
+					<DataTemplate DataType="{x:Type	class:ElementAnd}">
+						<Views:ElementAND>
+							<Views:ElementAND.RenderTransform>
+								<TranslateTransform X="{Binding StartPointObject.X}"
+													Y="{Binding StartPointObject.Y}"/>
+							</Views:ElementAND.RenderTransform>
+						</Views:ElementAND>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type	class:ElementOR}">
+						<Views:ElementOr>
+							<Views:ElementOr.RenderTransform>
+								<TranslateTransform X="{Binding StartPointObject.X}"
+													Y="{Binding StartPointObject.Y}"/>
+							</Views:ElementOr.RenderTransform>
+						</Views:ElementOr>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type	class:ElementNO}">
+						<Views:ElementNO>
+							<Views:ElementNO.RenderTransform>
+								<TranslateTransform X="{Binding StartPointObject.X}"
+													Y="{Binding StartPointObject.Y}"/>
+							</Views:ElementNO.RenderTransform>
+						</Views:ElementNO>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type	class:ElementISCOR}">
+						<Views:ElementISCOR>
+							<Views:ElementISCOR.RenderTransform>
+								<TranslateTransform X="{Binding StartPointObject.X}"
+													Y="{Binding StartPointObject.Y}"/>
+							</Views:ElementISCOR.RenderTransform>
+						</Views:ElementISCOR>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type	class:ElementENTRY}">
+						<Views:ElementENTRY DoubleTapped="DoubleTapOnCanvas" Power ="{Binding NullorOne}">
+							<Views:ElementENTRY.RenderTransform>
+								<TranslateTransform X="{Binding StartPointObject.X}"
+													Y="{Binding StartPointObject.Y}"/>
+							</Views:ElementENTRY.RenderTransform>
+						</Views:ElementENTRY>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type	class:ElementOUT}">
+						<Views:ElementOUT Power="{Binding NullorOne}">
+							<Views:ElementOUT.RenderTransform>
+								<TranslateTransform X="{Binding StartPointObject.X}"
+													Y="{Binding StartPointObject.Y}"/>
+							</Views:ElementOUT.RenderTransform>
+						</Views:ElementOUT>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type	class:ElementMUX}">
+						<Views:ElementMUX>
+							<Views:ElementMUX.RenderTransform>
+								<TranslateTransform X="{Binding StartPointObject.X}"
+													Y="{Binding StartPointObject.Y}"/>
+							</Views:ElementMUX.RenderTransform>
+						</Views:ElementMUX>
+					</DataTemplate>
+					<DataTemplate DataType="{x:Type	class:ClassForLine}">
+						<Line StartPoint="{Binding StartPoint}" EndPoint="{Binding EndPoint}" Stroke="Green" StrokeThickness="3"></Line>
+					</DataTemplate>
+				</ItemsControl.DataTemplates>
+			</ItemsControl>
+			<TextBlock Grid.ColumnSpan="1" Text="{Binding DrawProjectName}" DoubleTapped="DoubleTapForRename" HorizontalAlignment="Center"></TextBlock>
+			<Grid Grid.Column="1" RowDefinitions="*,80">
+				<ListBox DoubleTapped="DoubleTapForRename" Grid.Row="0" Items="{Binding DrawVkladkaList}" SelectedIndex="{Binding SelectedVkladka}">
+					<ListBox.ItemTemplate>
+						<DataTemplate DataType="{x:Type	class:MyShemVkladka}">
+							<TextBlock Text="{Binding CreateNameVkladka}"></TextBlock>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
+				<StackPanel Grid.Row="1">
+					<Button Click="AddShem" Content="ADD" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+					<Button Click="DelShem" Content="DEL" FontSize="14" Width="160" Height="39" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Button>
+				</StackPanel>
+			</Grid>
+		</Grid>
+	</Grid>
+</Window>
