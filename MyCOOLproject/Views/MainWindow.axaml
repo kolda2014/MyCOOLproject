@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MyCOOLproject.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:locc="clr-namespace:MyCOOLproject.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+		Height="550" Width="700"
+        x:Class="MyCOOLproject.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="MyCOOLproject">
+
+    <Design.DataContext>
+    
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid RowDefinitions="*,100">
+		<ListBox Items="{Binding HistoryCollection, Mode=OneWay}" Grid.Row="0" DoubleTapped="DoubleTapForOpen">
+			<ListBox.ItemTemplate>
+				<DataTemplate DataType="{x:Type locc:ClassForHistory}">
+					<StackPanel>
+						<TextBlock Text="{Binding Name}"/>
+						<TextBlock Text="{Binding PathProject}"/>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel Grid.Row="1">
+			<Button Background="DarkBlue" Content="New File" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Create"/>
+			<Button Background="DarkBlue" Content="Open File" Click="Open" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			<Button Background="DarkBlue" Content="Back to home" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CloseWindow"/>
+		</StackPanel>
+	</Grid>
+</Window>
